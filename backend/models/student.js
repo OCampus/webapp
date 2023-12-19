@@ -32,6 +32,13 @@ const studentSchema = new mongoose.Schema({
   roommate: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Student'
+  },
+  institution: {
+    type: String,
+    required: true
+  },
+  religion: {
+    type: String
   }
 })
 
