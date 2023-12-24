@@ -8,7 +8,6 @@ import User from './user.js'
  * @property {string} department - The department of the student.
  * @property {string} gender - The gender of the student ('male' or 'female').
  * @property {string} [roommatePreference] - The roommate preference of the student.
- * @property {number} [budget] - The budget of the student.
  * @property {mongoose.Schema.Types.ObjectId} [roommate] - The ID of the student's roommate.
  */
 
@@ -27,8 +26,7 @@ const studentSchema = new mongoose.Schema({
     enum: ['male', 'female'],
     required: true
   },
-  roommatePreference: { tyepe: String },
-  budget: { type: Number },
+  roommatePreference: { type: [String], default: [] },
   roommate: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Student'
