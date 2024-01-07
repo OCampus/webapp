@@ -1,24 +1,21 @@
 import passport from 'passport'
-import { Strategy as JwtStrategy, ExtractJwt } from 'passport-jwt'
+import { Strategy as JwtStrategy } from 'passport-jwt'
 import User from '../models/user.js'
 import Landlord from '../models/landlord.js'
 import Student from '../models/student.js'
 import { Strategy as GoogleStrategy } from 'passport-google-oauth20'
 
-// serialize
-passport.serializeUser((user, done) => {
-  done(null, user.id)
-})
-
-// deserialize
-passport.deserializeUser(async (id, done) => {
-  const user = await User.findById(id)
-  done(null, user)
-})
+const cookieExtractor = function (req) {
+  let token = null
+  if (req && req.cookies) {
+    token = req.cookies.token
+  }
+  return token
+}
 
 // JWT passport strategy
 const jwtOptions = {
-  jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
+  jwtFromRequest: cookieExtractor,
   secretOrKey: process.env.JWT_SECRET
 }
 passport.use(new JwtStrategy(jwtOptions, async (payload, done) => {
@@ -33,6 +30,23 @@ passport.use(new JwtStrategy(jwtOptions, async (payload, done) => {
   }
 }))
 
+/**
+ *
+ * Google OAuth2.0
+ */
+
+// serialize
+passport.serializeUser((user, done) => {
+  done(null, user.id)
+})
+
+// deserialize
+passport.deserializeUser(async (id, done) => {
+  const user = await User.findById(id)
+  done(null, user)
+})
+
+// create user for google login
 const createUser = async (email, userType, name, profile) => {
   const [firstName, lastName] = name.split(' ')
   const UserModel = userType === 'Landlord' ? Landlord : Student
@@ -41,6 +55,7 @@ const createUser = async (email, userType, name, profile) => {
   return user
 }
 
+// Google passport strategy
 passport.use(
   new GoogleStrategy({
     clientID: process.env.GOOGLE_CLIENT_ID,
@@ -55,6 +70,9 @@ passport.use(
       if (!user) {
         // Parse the decoded state parameter into an object
         const stateObj = JSON.parse(req.query.state)
+        if (!stateObj) {
+          return done(new Error('User does not exist'), false)
+        }
 
         // Access the userType property of the state object
         const userType = stateObj.userType

@@ -7,8 +7,7 @@ import sendToken from '../utils/sendToken.js'
 
 // basic signup for landlord and students
 export const signup = asyncErrors(async (req, res, next) => {
-  const { email, password, firstName, lastName } = req.body
-  const userType = req.query.userType // userType passed as a query parameter
+  const { email, password, firstName, lastName, userType } = req.body
   if (!userType) return next(new ErrorHandler('User type not specified', 400))
 
   const commonUserData = {
@@ -20,18 +19,16 @@ export const signup = asyncErrors(async (req, res, next) => {
 
   try {
     let user
-    if (userType === 'landlord') {
+    if (userType === 'Landlord') {
       user = new Landlord(commonUserData)
-    } else if (userType === 'student') {
-      const { level, department, gender, roommatePreferences, institution, religion } = req.body
+    } else if (userType === 'Student') {
+      const { level, department, gender, institution } = req.body
       user = new Student({
         ...commonUserData,
         level,
         department,
         gender,
-        roommatePreferences,
-        institution,
-        religion
+        institution
       })
     }
 
@@ -69,9 +66,4 @@ export const login = asyncErrors(async (req, res, next) => {
 
   // return auth token
   sendToken(user, 200, res)
-})
-
-// google callback/redirect controller
-export const googleRedirect = asyncErrors(async (req, res, next) => {
-
 })
