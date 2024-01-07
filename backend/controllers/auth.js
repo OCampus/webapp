@@ -5,15 +5,17 @@ import asyncErrors from '../middlewares/asyncError.js'
 import ErrorHandler from '../utils/errorHandler.js'
 import sendToken from '../utils/sendToken.js'
 
+// basic signup for landlord and students
 export const signup = asyncErrors(async (req, res, next) => {
-  const { email, password, userType, firstName, lastName } = req.body
+  const { email, password, firstName, lastName } = req.body
+  const userType = req.query.userType // userType passed as a query parameter
+  if (!userType) return next(new ErrorHandler('User type not specified', 400))
 
   const commonUserData = {
     email,
     password,
     firstName,
-    lastName,
-    userType
+    lastName
   }
 
   try {
@@ -39,13 +41,15 @@ export const signup = asyncErrors(async (req, res, next) => {
       return next(new ErrorHandler(`${userType.capitalize()} already exists`, 400))
     }
 
+    user.isLoggedIn = true
     await user.save()
     sendToken(user, 201, res)
   } catch (error) {
-    return next(new ErrorHandler(error.message, 400))
+    return next()
   }
 })
 
+// basic login for both users
 export const login = asyncErrors(async (req, res, next) => {
   const { email, password } = req.body
 
@@ -60,6 +64,14 @@ export const login = asyncErrors(async (req, res, next) => {
   const isPasswordValid = await user.validatePassword(password)
   if (!isPasswordValid) return next(new ErrorHandler('Invalid Password', 401))
 
+  // check if user is already logged in
+  // if (user.isLoggedIn === true) return next(new ErrorHandler('User already logged in', 401))
+
   // return auth token
   sendToken(user, 200, res)
+})
+
+// google callback/redirect controller
+export const googleRedirect = asyncErrors(async (req, res, next) => {
+
 })

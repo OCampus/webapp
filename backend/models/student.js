@@ -14,28 +14,19 @@ import User from './user.js'
 const studentSchema = new mongoose.Schema({
   level: {
     type: String,
-    enum: ['100', '200', '300', '400', '500', '600'],
-    required: true
+    enum: ['100', '200', '300', '400', '500', '600']
   },
   department: {
-    type: String,
-    required: true
+    type: String
   },
   gender: {
-    type: String,
-    enum: ['male', 'female'],
-    required: true
+    type: String
   },
-  roommatePreference: { type: [String], default: [] },
   roommate: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Student'
   },
   institution: {
-    type: String,
-    required: true
-  },
-  religion: {
     type: String
   }
 })

@@ -1,18 +1,9 @@
-/**
- * @file User model schema definition.
- * @module models/user
- */
-
 import mongoose from 'mongoose'
 import jwt from 'jsonwebtoken'
 import bcrypt from 'bcrypt'
 
 /**
  * User schema definition.
- * @typedef {Object} UserSchema
- * @property {string} email - The user's email address.
- * @property {string} password - The user's password.
- * @property {string} userType - The user's type, either 'landlord' or 'student'.
  */
 
 const userSchema = new mongoose.Schema({
@@ -22,14 +13,8 @@ const userSchema = new mongoose.Schema({
     unique: true
   },
   password: {
-    type: String,
-    required: true,
+    type: String, // hashed password
     select: false
-  },
-  userType: {
-    type: String,
-    enum: ['landlord', 'student'],
-    required: true
   },
   firstName: {
     type: String,
@@ -38,9 +23,12 @@ const userSchema = new mongoose.Schema({
   lastName: {
     type: String,
     required: true
-  }
+  },
+  googleId: String,
+  isLoggedIn: Boolean
 },
 {
+  discriminatorKey: 'userType',
   timestamps: true
 }
 )
@@ -62,7 +50,8 @@ userSchema.methods.validatePassword = async function (insertedPassword) {
 userSchema.methods.generateAuthToken = function () {
   // Generate an auth token for the user
   const user = this
-  const token = jwt.sign({ _id: user._id, userType: user.userType }, process.env.JWT_SECRET, { expiresIn: process.env.JWT_EXPIRE })
+  const payload = { sub: user._id, userType: user.userType }
+  const token = jwt.sign(payload, process.env.JWT_SECRET, { expiresIn: process.env.JWT_EXPIRE })
   return token
 }
 
