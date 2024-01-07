@@ -3,6 +3,7 @@ import cookieParser from 'cookie-parser'
 import cors from 'cors'
 import errorHandler from './middlewares/error.js'
 import auth from './routes/auth.js'
+import profileRouter from './routes/profile.js'
 import session from 'express-session'
 import passport from './config/passport-setup.js'
 
@@ -35,6 +36,7 @@ app.use(cors({
 
 // api endpoints
 app.use(auth)
+app.use(profileRouter)
 
 app.use(errorHandler)
 export default app
