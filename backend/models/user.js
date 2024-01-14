@@ -24,6 +24,12 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: true
   },
+  loginHistory: [{
+    timestamps: {
+      type: Date,
+      default: Date.now
+    }
+  }],
   googleId: String,
   isLoggedIn: Boolean
 },

@@ -1,6 +1,7 @@
 import express from 'express'
 import { signup, login } from '../controllers/auth.js'
 import passport from 'passport'
+import User from '../models/user.js'
 
 const router = express.Router()
 
@@ -30,4 +31,14 @@ router.get('/google/redirect', passport.authenticate('google', { failureRedirect
     : res.status(401).json({ message: 'Google login failed.' })
 })
 
+// logout user
+router.get('/logout', async (req, res) => {
+  const userId = req.user._id
+  const updateUser = await User.findByIdAndUpdate(userId, { isLoggedIn: false }, { new: true })
+  if (!updateUser) return res.status(404).json({ message: 'User not found' })
+
+  res.clearCookie('token') // clear jwt cookie if it exists
+  req.logout()
+  res.status(200).json({ message: 'Logout successful.' })
+})
 export default router

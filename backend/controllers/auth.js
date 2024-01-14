@@ -56,14 +56,16 @@ export const login = asyncErrors(async (req, res, next) => {
   }
 
   const user = await User.findOne({ email }).select('+password')
-  if (!user) return next(new ErrorHandler('Invalid Email', 401))
+  if (!user) return next(new ErrorHandler('Invalid Email or Password', 401))
 
   const isPasswordValid = await user.validatePassword(password)
-  if (!isPasswordValid) return next(new ErrorHandler('Invalid Password', 401))
+  if (!isPasswordValid) return next(new ErrorHandler('Invalid Email or Password', 401))
 
   // check if user is already logged in
-  // if (user.isLoggedIn === true) return next(new ErrorHandler('User already logged in', 401))
-
+  if (user.isLoggedIn === true) return next(new ErrorHandler('User already logged in', 401))
+  user.isLoggedIn = true
+  user.loginHistory.push({ timestamp: new Date() })
+  await user.save()
   // return auth token
   sendToken(user, 200, res)
 })

@@ -51,6 +51,8 @@ const createUser = async (email, userType, name, profile) => {
   const [firstName, lastName] = name.split(' ')
   const UserModel = userType === 'Landlord' ? Landlord : Student
   const user = new UserModel({ email, firstName, lastName, googleId: profile.id })
+  user.loginHistory.push({ timestamp: new Date() })
+  user.isLoggedIn = true
   await user.save()
   return user
 }
