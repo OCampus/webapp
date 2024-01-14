@@ -39,6 +39,7 @@ export const signup = asyncErrors(async (req, res, next) => {
     }
 
     user.isLoggedIn = true
+    user.loginHistory.push({ timestamp: new Date() })
     await user.save()
     sendToken(user, 201, res)
   } catch (error) {

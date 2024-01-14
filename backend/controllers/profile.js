@@ -42,7 +42,7 @@ export const updateProfile = asyncError(async (req, res, next) => {
           new: true,
           runValidators: true
         })
-        res.status(200).json({ success: true, updatedUser })
+        res.status(200).json({ success: true, user: updatedUser })
         break
       case 'Student':
         data = {
@@ -57,9 +57,14 @@ export const updateProfile = asyncError(async (req, res, next) => {
           new: true,
           runValidators: true
         })
-        res.status(200).json({ success: true, updatedUser })
+        res.status(200).json({ success: true, user: updatedUser })
     }
   } catch (err) {
     return next(new ErrorHandler(err.message, 400))
   }
 })
+
+// // update user password
+// export const updatePassword = asyncError(async (req, res, next) => {
+//   const user = await User.findById(req.user._id)
+// })
