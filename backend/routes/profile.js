@@ -1,6 +1,6 @@
 import express from 'express'
 import isAuthenticated from '../middlewares/checkAuth.js'
-import { getProfile, getUserById, updateProfile } from '../controllers/profile.js'
+import { getProfile, getUserById, updateProfile, updatePassword, deleteAccount } from '../controllers/profile.js'
 
 const router = express.Router()
 
@@ -12,5 +12,11 @@ router.get('/user/:id', isAuthenticated, getUserById)
 
 // update user profile
 router.put('/user/:id', isAuthenticated, updateProfile)
+
+// delete user account
+router.delete('/user/:id', isAuthenticated, deleteAccount)
+
+// update user password
+router.put('/user/:id/password', isAuthenticated, updatePassword)
 
 export default router

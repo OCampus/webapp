@@ -70,3 +70,7 @@ export const login = asyncErrors(async (req, res, next) => {
   // return auth token
   sendToken(user, 200, res)
 })
+
+// forgot password
+
+// reset password

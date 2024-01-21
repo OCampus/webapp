@@ -64,7 +64,32 @@ export const updateProfile = asyncError(async (req, res, next) => {
   }
 })
 
-// // update user password
-// export const updatePassword = asyncError(async (req, res, next) => {
-//   const user = await User.findById(req.user._id)
-// })
+// update user password
+export const updatePassword = asyncError(async (req, res, next) => {
+  const user = await User.findById(req.user._id).select('+password')
+  const { oldPassword, newPassword } = req.body
+
+  const isPasswordValid = user.validatePassword(oldPassword)
+  if (!isPasswordValid) return next(new ErrorHandler('Incorrect old password', 401))
+
+  if (oldPassword === newPassword) {
+    return next(new ErrorHandler('Enter a new password', 400))
+  }
+  user.password = newPassword
+  await user.save()
+  res.status(200).json({ success: true, message: 'Password updated successfully' })
+})
+
+// delete user account
+
+export const deleteAccount = asyncError(async (req, res, next) => {
+  if (req.user._id !== req.params.id) return next(new ErrorHandler('You are not authorized to perform this action', 401))
+  const user = await User.findById(req.params.id)
+  if (!user) return next(new ErrorHandler('User not found', 404))
+
+  await user.deleteOne({ _id: req.params.id })
+  res.status(200).json({ success: true, message: 'Account deleted successfully' })
+})
+
+// upload photo
+// delete photo or update photo
