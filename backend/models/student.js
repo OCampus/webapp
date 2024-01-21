@@ -7,8 +7,6 @@ import User from './user.js'
  * @property {string} level - The level of the student (e.g. '100', '200', etc.).
  * @property {string} department - The department of the student.
  * @property {string} gender - The gender of the student ('male' or 'female').
- * @property {string} [roommatePreference] - The roommate preference of the student.
- * @property {mongoose.Schema.Types.ObjectId} [roommate] - The ID of the student's roommate.
  */
 
 const studentSchema = new mongoose.Schema({
@@ -21,10 +19,6 @@ const studentSchema = new mongoose.Schema({
   },
   gender: {
     type: String
-  },
-  roommate: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'Student'
   },
   institution: {
     type: String
