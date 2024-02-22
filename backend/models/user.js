@@ -40,10 +40,9 @@ const userSchema = new mongoose.Schema({
 )
 
 userSchema.pre('save', async function (next) {
-  const user = this
-  if (user.isModified('password')) {
+  if (this.isModified('password')) {
     // Hash the password before saving the user model
-    user.password = await bcrypt.hash(user.password, 8)
+    this.password = await bcrypt.hash(this.password, 8)
   }
   next()
 })
@@ -55,8 +54,7 @@ userSchema.methods.validatePassword = async function (insertedPassword) {
 
 userSchema.methods.generateAuthToken = function () {
   // Generate an auth token for the user
-  const user = this
-  const payload = { sub: user._id, userType: user.userType }
+  const payload = { sub: this._id, userType: this.userType }
   const token = jwt.sign(payload, process.env.JWT_SECRET, { expiresIn: process.env.JWT_EXPIRE })
   return token
 }

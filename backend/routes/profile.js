@@ -17,6 +17,6 @@ router.put('/user/:id', isAuthenticated, updateProfile)
 router.delete('/user/:id', isAuthenticated, deleteAccount)
 
 // update user password
-router.put('/user/:id/password', isAuthenticated, updatePassword)
+router.put('/user/password/update', isAuthenticated, updatePassword)
 
 export default router
