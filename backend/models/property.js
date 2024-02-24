@@ -26,12 +26,13 @@ const propertySchema = new mongoose.Schema({
     type: Number,
     required: true
   },
-  reviews: [
-    {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: 'Review'
-    }
-  ]
+  distance: {
+    type: Number, // should be in mins
+    required: true
+  },
+  rules: {
+    type: [String]
+  }
 }, {
   timestamps: true
 })
