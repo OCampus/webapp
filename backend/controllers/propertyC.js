@@ -23,7 +23,10 @@ export const createProperty = asyncError(async (req, res, next) => {
 
 // Get Property by id
 export const getPropertyById = asyncError(async (req, res, next) => {
-  const property = await Property.findById(req.params.id)
+  const property = await Property.findById(req.params.id).populate({
+    path: 'landlord',
+    select: 'firstName lastName'
+  })
   if (!property) return next(new ErrorHandler('Property not found', 404))
   res.status(200).json({ success: true, property })
 })
@@ -66,14 +69,20 @@ export const deleteProperty = asyncError(async (req, res, next) => {
 
 // Get all properties | Property Listing
 export const getAllProperties = asyncError(async (req, res, next) => {
-  const properties = await Property.find()
+  const properties = await Property.find().populate({
+    path: 'landlord',
+    select: 'firstName lastName'
+  })
   if (!properties) return next(new ErrorHandler('Properties not found', 404))
   res.status(200).json({ success: true, properties })
 })
 
 // Get all properties by landlord
 export const getPropertiesByLandlord = asyncError(async (req, res, next) => {
-  const properties = await Property.find({ landlord: req.user.id })
+  const properties = await Property.find({ landlord: req.user.id }).populate({
+    path: 'landlord',
+    select: 'firstName lastName'
+  })
   if (!properties) return next(new ErrorHandler('Properties not found', 404))
   res.status(200).json({ success: true, properties })
 })

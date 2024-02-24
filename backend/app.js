@@ -5,6 +5,7 @@ import errorHandler from './middlewares/error.js'
 import auth from './routes/auth.js'
 import profileRouter from './routes/profile.js'
 import propertyRouter from './routes/property.js'
+import reviewRouter from './routes/review.js'
 import session from 'express-session'
 import passport from './config/passport-setup.js'
 
@@ -39,6 +40,7 @@ app.use(cors({
 app.use(auth)
 app.use(profileRouter)
 app.use(propertyRouter)
+app.use(reviewRouter)
 
 app.use(errorHandler)
 export default app
