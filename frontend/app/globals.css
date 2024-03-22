@@ -2,28 +2,57 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+/* buttons */
+.btn {
+  @apply rounded-lg py-1.5 px-7
 }
 
-@media (prefers-color-scheme: dark) {
+/* section */
+.section {
+  @apply px-16 md:px-20 lg:px-[7.5rem] xl:px-[8.5rem]
+}
+.unactive {
+  @apply text-[#474747]
+}
+
+
+/* hero */
+.heroText {
+  @apply text-7xl text-left mb-7 text-[#080F2B]
+}
+
+.heroSubText {
+  @apply text-[080F2B]
+}
+
+.bg-primary {
+  @apply text-white
+}
+/* default */
+
+:root {
+  /* --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255; */
+  @apply bg-white
+}
+
+/* @media (prefers-color-scheme: dark) {
   :root {
     --foreground-rgb: 255, 255, 255;
     --background-start-rgb: 0, 0, 0;
     --background-end-rgb: 0, 0, 0;
   }
-}
+} */
 
 body {
-  color: rgb(var(--foreground-rgb));
+  /* color: rgb(var(--foreground-rgb));
   background: linear-gradient(
       to bottom,
       transparent,
       rgb(var(--background-end-rgb))
     )
-    rgb(var(--background-start-rgb));
+    rgb(var(--background-start-rgb)); */
 }
 
 @layer utilities {
