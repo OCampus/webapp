@@ -16,8 +16,12 @@ module.exports = {
         "primary": "#755AE2",
         "secondary": "#fff",
         "tertiary": "#fff",
-        "tertiary-2" : "#F3F6FD"
+        "tertiary-2" : "#F6F3FD",
+        "content-1" : "#140227"
 
+      },
+      screens: {
+        "mdf": "950px"
       }
     },
   },

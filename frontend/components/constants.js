@@ -33,4 +33,38 @@ const LandlordProps = {
 }
 
 
-export {HeroProps, AboutProps, StudentProps, LandlordProps}
+const Feature = [
+    {
+        head: "Diverse Accommodations",
+        subHead: "Explore a variety of student-friendly lodgings, ensuring there's something for everyone.",
+        imgName: "home.svg"
+    },
+    {
+        head: "User-Friendly Interface",
+        subHead: "Our platform is designed for easy navigation, ensuring a hassle-free experience for every user.",
+        imgName: "people.svg"
+    },
+    {
+        head: "Transparent Processes",
+        subHead: "Ocampus prioritises transparency in pricing and booking, eliminating surprises and hidden fees",
+        imgName: "cube.svg"
+    },
+    {
+        head: "Seamless Booking",
+        subHead: "Explore a variety of student-friendly lodgings, ensuring there's something for everyone.",
+        imgName: "book.svg"
+    },
+    {
+        head: "Secure & Precise Locations",
+        subHead: "Your safety matters. Ocampus provides precise location details and collaborates with local authorities to create a secure environment for all users.",
+        imgName: "location.svg"
+    },
+    {
+        head: "Community Focus",
+        subHead: "Ocampus fosters a sense of community, connecting students with comfortable and suitable living spaces",
+        imgName: "community.svg"
+    },
+]
+
+
+export {HeroProps, AboutProps, StudentProps, LandlordProps, Feature}
