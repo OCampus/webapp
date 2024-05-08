@@ -36,6 +36,10 @@ app.use(cors({
   credentials: true
 }))
 
+app.get('/', (req, res) => {
+  res.send('Welcome to Ocampus Backend')
+})
+
 // api endpoints
 app.use(auth)
 app.use(profileRouter)
