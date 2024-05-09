@@ -3,8 +3,8 @@ import Image from 'next/image'
 
 const Download = () => {
   return (
-    <div className='bg-primary section pt-20'>
-        <h2 className='text-center text-2xl'>
+    <div className='bg-primary-1 section pt-20'>
+        <h2 className="text-center text-2xl">
             Your Gateway to Hassle-free Student Living
         </h2>
 
@@ -17,7 +17,7 @@ const Download = () => {
                     <h3 >For Android</h3>
                     <p className='text-xs'>Android 10.6+</p>
 
-                    <button className='btn my-7 bg-white rounded-lg text-primary'>
+                    <button className='btn my-7 bg-white rounded-lg text-primary-1'>
                         Download
                     </button>
                 </div>
@@ -48,7 +48,7 @@ const Download = () => {
                     <h3>For Ios </h3>
                     <p className='text-xs'>Ios 15.6+</p>
 
-                    <button className='btn my-7 bg-white rounded-lg text-primary'>
+                    <button className='btn my-7 bg-white rounded-lg text-primary-1'>
                         Download
                     </button>
                 </div>

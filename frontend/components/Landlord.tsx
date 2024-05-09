@@ -29,7 +29,7 @@ const Landlord = () => {
                     {sub}
                 </div>
 
-                <button className='btn bg-primary text-white'>
+                <button className='btn bg-primary-1 text-white'>
                     Explore
                 </button>
             </div>

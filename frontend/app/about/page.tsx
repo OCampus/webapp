@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { Navbar, Hero, About, Student, Landlord, Features, Download, Footer} from "@/components";
+import {  Hero, About, Student, Landlord, Features, Download} from "@/components/index";
 
 
 
@@ -7,16 +7,13 @@ export default function Home() {
   
   return (
     <main className="">
-      <div className="lg:min-h-screen mb-10">
-        <Navbar />
-        <Hero />
-      </div>
+      <Hero />
       <About />
       <Student/>
       <Landlord/>
       <Features/>
       <Download/>
-      <Footer/>
+      
     </main>
   )
 }

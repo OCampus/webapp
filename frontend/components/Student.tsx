@@ -5,7 +5,7 @@ import { StudentProps } from './constants'
 const Student = () => {
     const {head,sub} =  StudentProps;
   return (
-    <div className='section bg-primary py-[5rem] items-center'>
+    <div className='section bg-primary-1 py-[5rem] items-center'>
         <div className='md:grid grid-cols-2 md:gap-10 lg:gap-20 items-center'>
             <div className='col-span-1 grid place-items-center'>
 
@@ -19,7 +19,7 @@ const Student = () => {
 
             </div>
             <div className='col-span-1 mt-10 md:mt-0'>
-                <h3 className='text-3xl'>
+                <h3 className='text-3xl text-white'>
                     {head}
                 </h3>
 
@@ -27,7 +27,7 @@ const Student = () => {
                     {sub}
                 </div>
 
-                <button className='bg-white btn text-primary'>
+                <button className='bg-white btn text-primary-1'>
                     Get Started
                 </button>
             </div>

@@ -10,7 +10,7 @@ const page = () => {
         <div className='sm:hidden -mt-8'>
           <Footer />
         </div>
-
+        
     </div>
   )
 }

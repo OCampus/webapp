@@ -3,7 +3,7 @@ import Image from 'next/image'
 
 const Footer = () => {
   return (
-    <div className='section pt-20 pb-8'>
+    <div className='section pt-20 pb-8 font-manrope'>
 
         <div className='flex flex-wrap justify-between gap-4 mt-2 mb-6'>
 
@@ -70,6 +70,8 @@ const Footer = () => {
             </div>
 
             {/* search for updates */}
+        
+        
             <div className='w-full mdf:w-fit'>
                 <h3 className='font-semibold text-xl'>Suscribe for updates</h3>
                 <div className='bg-tertiary-2  border-2 flex p-1 rounded-xl justify-between'>
@@ -77,10 +79,10 @@ const Footer = () => {
 
                     <input type="text" 
                         placeholder='Your email or phone number please'
-                        className='text-sm outline-none bg-transparent'
+                        className='text-sm grow outline-none bg-transparent'
                     />
 
-                    <button className='bg-primary px-2 py-1 rounded-lg right'>
+                    <button className='bg-primary-1 px-2 py-1 rounded-lg right'>
                         
                         <Image 
                             src='/arrow.svg'
@@ -95,7 +97,9 @@ const Footer = () => {
             
         </div>
 
-        <hr />
+        
+
+        <hr/>
 
         <div className='grid place-items-center mt-6'>
             &copy; OCampus 2024

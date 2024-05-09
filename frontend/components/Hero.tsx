@@ -1,10 +1,10 @@
 import React from 'react'
 import { HeroProps } from './constants'
-import Image from 'next/image'
+import Image from 'next/image';
 
 const Hero = () => {
   return (
-    <div className='section md:py-4 bg-white'>
+    <div className='section h-5/6 mb-3 md:py-4 bg-white'>
 
         <div className='md:flex md:flex-1 w-full gap-3 mt-4 md:mt-14 sm:items-center'>
 
@@ -20,7 +20,7 @@ const Hero = () => {
                     {HeroProps.heroSubText}
                 </div>
 
-                <button className='btn bg-primary my-2.5'>
+                <button className='hero-btn bg-primary-1 text-white py-6 my-2.5'>
                     Get Started
                 </button>
             </div>

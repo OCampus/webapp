@@ -1,4 +1,23 @@
+const NavLinks = [
+    { title: "Explore", id:"explore" } ,
+    { title: "About Us", id: "about"} , 
+    { title: "Help & Support", id: "help" }
+];
 
+const ApartmentType = [
+    "Bungalow", "Three bedroom flat", "selfcon", "School hostel", "face me i slap you"
+]
+
+const PriceRange = [
+    "50 - 60k", "61 - 70k","71 - 80k","81k - 90k"
+]
+
+const ProximityToSchool = [
+    "3 min trek", "5 min trex", "10 min trek", "15 min trek"
+]
+
+
+// Hero props
 const HeroProps = {
     heroText: "Welcome to Ocampus;  Your gateway to hassle-free student living",
     heroSubText: "More than 10,000 house for rent with ocampus app.",
@@ -67,4 +86,4 @@ const Feature = [
 ]
 
 
-export {HeroProps, AboutProps, StudentProps, LandlordProps, Feature}
+export {NavLinks, HeroProps, AboutProps, StudentProps, LandlordProps, Feature}
