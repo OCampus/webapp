@@ -3,11 +3,11 @@ import Image from 'next/image'
 
 const Footer = () => {
   return (
-    <div className='section pt-20 pb-8 font-manrope'>
+    <div className='section bg-white pt-20 pb-8 font-manrope'>
 
-        <div className='flex flex-wrap justify-between gap-4 mt-2 mb-6'>
+        <div className='sm:flex flex-wrap justify-between gap-4 mt-2 mb-6'>
 
-            <div className='socials w-full mdf:w-fit'>
+            <div className='socials w-full mdf:w-fit my-3'>
                 <Image src="/logo.png" alt='logo image' width={139} height={500}/>
                 <div className="flex gap-1 my-3">
                     <Image
@@ -43,7 +43,7 @@ const Footer = () => {
                 </div>
             </div>
 
-            <div>
+            <div className='max-sm:my-2'>
                 <h3 className=' mb-2 font-semibold text-lg'>Support</h3>
                 <ul className='text-opac-dark text-sm'>
                     <li>About Us</li>
@@ -52,7 +52,7 @@ const Footer = () => {
                 </ul>
             </div>
 
-            <div>
+            <div className='max-sm:my-2'>
                 <h3 className=' mb-2 font-semibold text-lg'>Legal</h3>
                 <ul className='text-opac-dark text-sm'>
                     <li>Privacy policy</li>
@@ -60,7 +60,7 @@ const Footer = () => {
                 </ul>
             </div>
 
-            <div>
+            <div className='max-sm:my-2'>
                 <h3 className=' mb-2 font-semibold text-lg'>Join Us</h3>
                 <ul className='text-opac-dark text-sm'>
                     <li>Careers</li>
@@ -74,7 +74,7 @@ const Footer = () => {
         
             <div className='w-full mdf:w-fit'>
                 <h3 className='font-semibold text-xl'>Suscribe for updates</h3>
-                <div className='bg-tertiary-2  border-2 flex p-1 rounded-xl justify-between'>
+                <div className='bg-tertiary-2 my-2 border-2 flex p-1 rounded-xl justify-between'>
                     
 
                     <input type="text" 

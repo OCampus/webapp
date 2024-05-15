@@ -5,14 +5,14 @@ import{ Navbar, Footer } from "@/components/index";
 
 export const metadata: Metadata = {
   title: "oCampus",
-  description: "oCampus",
+  description: "Your gateway to hassle-free student living",
 };
 
 export default function RootLayout({
-  children ,
-}: Readonly<{
+  children,
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
     <html lang="en">
 

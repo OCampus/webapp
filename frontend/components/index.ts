@@ -1,13 +1,34 @@
-
-
-import Hero from "./Hero";
+// General Layout
 import Navbar from "./Navbar";
-import Nav from "./Nav";
+import Footer from "./Footer";
+
+
+// About section
+import Hero from "./Hero";
 import About from "./About";
 import Student from "./Student";
 import Landlord from "./Landlord";
 import Features from "./Features";
 import Download from "./Download";
-import Footer from "./Footer";
+import Signin from "./Signin";
 
-export {Navbar,Hero,About,Student,Landlord, Features, Download, Footer}
+// help section
+import HelpHero from "./HelpHero";
+import HelpArticles from "./HelpArticles";
+import ArticlesCard from "./ArticlesCard";
+import PopularArticles from "./PopularArticles";
+
+export {Navbar,
+        Hero,
+        About,
+        Student,
+        Landlord,
+        Features,
+        Download,
+        Footer, 
+        Signin, 
+        HelpHero, 
+        HelpArticles,
+        ArticlesCard,
+        PopularArticles
+}

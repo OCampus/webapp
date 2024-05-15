@@ -21,7 +21,8 @@ const ProximityToSchool = [
 const HeroProps = {
     heroText: "Welcome to Ocampus;  Your gateway to hassle-free student living",
     heroSubText: "More than 10,000 house for rent with ocampus app.",
-    heroImg: 'hero.png'
+    heroMdImg: 'hero-md.png',
+    heroImg: 'heroImg.png'
 }
 
 
@@ -85,5 +86,21 @@ const Feature = [
     },
 ]
 
+// help articles
+const ArticlesCategory = [
+    { title: "Students", id:"student" } ,
+    { title: "Landlords", id: "landlord"} , 
+    { title: "Become an agent", id: "becomingAgent" }
+];
 
-export {NavLinks, HeroProps, AboutProps, StudentProps, LandlordProps, Feature}
+const PopularArticlesExamples = [
+    { title: "What is Ocampus?", content:"Lorem ipsum dolor sit amet consectetur, adipisicing elit. Blanditiis fugit numquam iste impedit nisi, repellat aliquid accusamus omnis debitis iusto eius nesciunt dolorum delectus qui nam! Ipsa ex dolorem nobis."},
+    { title: "Creating an account on Ocampus", content:"Lorem ipsum dolor sit amet consectetur, adipisicing elit. Blanditiis fugit numquam iste impedit nisi, repellat aliquid accusamus omnis debitis iusto eius nesciunt dolorum delectus qui nam! Ipsa ex dolorem nobis."},
+    { title: "Account Verification", content:"Lorem ipsum dolor sit amet consectetur, adipisicing elit. Blanditiis fugit numquam iste impedit nisi, repellat aliquid accusamus omnis debitis iusto eius nesciunt dolorum delectus qui nam! Ipsa ex dolorem nobis."},
+    { title: "Verify your Email", content:"Lorem ipsum dolor sit amet consectetur, adipisicing elit. Blanditiis fugit numquam iste impedit nisi, repellat aliquid accusamus omnis debitis iusto eius nesciunt dolorum delectus qui nam! Ipsa ex dolorem nobis."},
+    { title: "Verify your Phone Number", content:"Lorem ipsum dolor sit amet consectetur, adipisicing elit. Blanditiis fugit numquam iste impedit nisi, repellat aliquid accusamus omnis debitis iusto eius nesciunt dolorum delectus qui nam! Ipsa ex dolorem nobis."},
+    { title: "Upload a Profile Picture", content:"Lorem ipsum dolor sit amet consectetur, adipisicing elit. Blanditiis fugit numquam iste impedit nisi, repellat aliquid accusamus omnis debitis iusto eius nesciunt dolorum delectus qui nam! Ipsa ex dolorem nobis."},
+
+]
+
+export {NavLinks, HeroProps, AboutProps, StudentProps, LandlordProps, Feature, ArticlesCategory, PopularArticlesExamples}
