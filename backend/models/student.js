@@ -7,31 +7,21 @@ import User from './user.js'
  * @property {string} level - The level of the student (e.g. '100', '200', etc.).
  * @property {string} department - The department of the student.
  * @property {string} gender - The gender of the student ('male' or 'female').
- * @property {string} [roommatePreference] - The roommate preference of the student.
- * @property {number} [budget] - The budget of the student.
- * @property {mongoose.Schema.Types.ObjectId} [roommate] - The ID of the student's roommate.
  */
 
 const studentSchema = new mongoose.Schema({
   level: {
     type: String,
-    enum: ['100', '200', '300', '400', '500', '600'],
-    required: true
+    enum: ['100', '200', '300', '400', '500', '600']
   },
   department: {
-    type: String,
-    required: true
+    type: String
   },
   gender: {
-    type: String,
-    enum: ['male', 'female'],
-    required: true
+    type: String
   },
-  roommatePreference: { tyepe: String },
-  budget: { type: Number },
-  roommate: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'Student'
+  institution: {
+    type: String
   }
 })
 
