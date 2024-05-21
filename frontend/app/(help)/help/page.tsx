@@ -1,21 +1,17 @@
 
 'use client';
 import { useState } from 'react';
-import { Navbar, HelpHero, HelpArticles, PopularArticles } from '@/components/index';
-import { ArticlesCategory, PopularArticlesExamples } from '@/components/constants';
+import { Navbar, HelpHero, HelpArticles, PopularArticlesAccordion } from '@/components/index';
+import { ArticlesCategory, PopularArticlesExamples } from '@/utils/constants';
 
 const page = () => {
   const [active,setActive] : any = useState('student');
   return (
-    <div className='w-full'>
-        {/* <div className=' helpTradeMarkSection'> */}
-          {/* <div className='bg-ocampus-logo'>
-            <Navbar/> */}
-            <HelpHero/>
-          {/* </div> */}
-        {/* </div> */}
+    <div className='w-full relative bg-white py-14 -mt-[2vh]'>
 
-        <div className="section bg-white py-14">
+        {/* <HelpHero/> */}
+
+        <div className="section bg-white relative">
 
           <div className='border-b flex' >
             {ArticlesCategory?.map((category) => (
@@ -34,10 +30,9 @@ const page = () => {
             <p className='text-content-1 text-xl font-semibold'>Popular Articles</p>
 
             <div className='mt-6'>
-              {PopularArticlesExamples.map(({title,content}) => (
-                <PopularArticles key={title} trigger={title} content={content}/>
-              ))}
+              <PopularArticlesAccordion />
             </div>
+
           </div>
         </div>
     </div>

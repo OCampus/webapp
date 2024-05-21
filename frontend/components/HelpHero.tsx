@@ -3,7 +3,7 @@ import { SearchIcon } from 'lucide-react'
 
 const HelpHero = () => {
   return (
-    <div className='helpHero py-20'>
+    <div className='helpHero my-28'>
         <div className=''>
             <div className='text-content-1 w-full font-semibold text-center items-center text-[1.6rem] md:text-[2rem] lg:text-[2.5rem]'>
                 Advice and answers from Ocampus team

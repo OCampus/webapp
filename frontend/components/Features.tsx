@@ -1,6 +1,8 @@
+'use client';
 import React from 'react'
 import Image from 'next/image'
-import { Feature } from './constants'
+import { Feature } from '../utils/constants'
+import { Tilt } from 'react-tilt'
 
 const Features = () => {
   return (
@@ -11,7 +13,7 @@ const Features = () => {
 
         <div className='md:grid md:grid-cols-3 gap-7 mt-20 w-full  my-10'>
           {Feature.map((feature) => (
-            <div key={feature.head} className="my-5 grid place-items-center w-full border rounded-xl dropShadow py-8 px-4">
+            <Tilt key={feature.head} className="my-5 bg-white grid place-items-center w-full shadow rounded-xl dropShadow py-8 px-4">
               
               <div className='my-5 bg-[#F6F3FD] place-items-center grid rounded-full w-10 h-10  p-2'>
                 
@@ -30,7 +32,7 @@ const Features = () => {
               <div className='text-sm text-center text-opac-dark'>
                 {feature.subHead}
               </div>
-            </div>
+            </Tilt>
           ))}
         </div>
     </div>

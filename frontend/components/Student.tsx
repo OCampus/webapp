@@ -1,6 +1,6 @@
 import React from 'react'
 import Image from 'next/image'
-import { StudentProps } from './constants'
+import { StudentProps } from '../utils/constants'
 
 const Student = () => {
     const {head,sub} =  StudentProps;

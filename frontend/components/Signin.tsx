@@ -1,95 +1,61 @@
-"use client";
-// import React from 'react'
-import Image from 'next/image'
+import Image from "next/image"
 
 const Signin = () => {
     // const [mail,useMail] = useState(false);
     
   return (
-    <section className='bg-white shadow items-center py-2 justify-center text-neutral-700 w-full sm:border px-5 md:w-fit rounded-lg font-manrope'>
-        <div className='border-b font-bold text-lg grid place-items-center pb-3'>
-            Login or Signup
-        </div>
-        <div className='py-5'>
-            <h3 className='text-2xl text-content-1 font-semibold my-2 font-manrope'>
-                Welcome to OCampus
-            </h3>
-            <p className='max-sm:text-sm text-xs text-[#515151] text-opacity-70 mt-2'>
-                Get started to get the best hostel deals
-            </p>
-
-            <form action="" className='mt-7'>
-
-                
-                <input type="number" 
-                    className='py-3 md:py-2.5 border px-2 outline-none border-[#d9d9d9] rounded-xl w-full' 
-                    placeholder='Enter phone number' name="" id="" />
-                <p className='text-[0.8rem] my-1 text-[#797979]'>You`ll get a verification code on the number</p>
-
-
-                <input type="submit" className='mt-4 px-3 rounded-lg py-3 md:py-2.5 bg-primary-1 w-full' value="Continue" />
-            </form>
-
-
-            <div className='grid place-items-center text-xs my-3'>
-                or
+    <>
+        <section className='mx-7 hidden my-5 bg-white shadow items-center py-2 justify-center text-neutral-700 w-full sm:border md:w-fit rounded-lg font-manrope'>
+            <div className='border-b py-2 font-bold text-lg grid place-items-center pb-3'>
+                Login
             </div>
+            <div className='py-5 px-5'>
+                <form action="" className='mt-7'>
 
-            {/* google */}
-            <div className='auth-btn'>
-                <Image
-                    src="/google.svg"
-                    alt="google"
-                    width="20"
-                    height="20"
-                />
+                    <label className='my-3'>
+                        <span className=''>Email address</span>
+                    </label>
+                    <input type="mail" 
+                        className='py-3 mb-4 md:py-2.5 border px-2 outline-none border-[#d9d9d9] rounded-xl w-full' 
+                        placeholder='Enter your email address' name="" id=""
+                    />
+                    
+                    <label className='my-3'>
+                        <span className=''>Password</span>
+                    </label>
+                    <input type="password" 
+                        className='py-3 md:py-2.5 border px-2 outline-none border-[#d9d9d9] rounded-xl w-full' 
+                        placeholder='Enter your password' name="" id=""
+                    />
+                    
+                    <p className='text-md my-2 font-manrope font-semibold text-primary-1'>
+                        Forget Password
+                    </p>
 
-                {/* <p className='place-items-center'> */}
-                    <p className='mx-auto'>Continue with Google</p>
 
-            </div>
+                    <input type="submit" className='mt-4 px-3 rounded-lg py-3 md:py-4 bg-primary-1 w-full font-semibold' value="Login" />
+                </form>
 
-            {/* apple */}
-            <div className='auth-btn'>
-                <Image
-                    src="/apple_2.svg"
-                    alt="apple"
-                    width="20"
-                    height="20"
-                />
 
-                <p className='mx-auto'>Continue with Apple</p>
+
+                {/* google */}
+                <div className='flex justify-center py-3 md:py-4 px-2 border my-3 gap-2 items-center rounded-xl'>
+                    <Image
+                        src="/google.svg"
+                        alt="google"
+                        width="20"
+                        height="20"
+                    />
+
+                    {/* <p className='place-items-center'> */}
+                        <p className='font-semibold text-content-1'>Login with Google</p>
+
+                </div>
 
             </div>
-            
-            {/* Microsoft */}
-            <div className='auth-btn'>
-                <Image
-                    src="/microsoft.svg"
-                    alt="microsoft"
-                    width="20"
-                    height="20"
-                />
+        </section>
 
-                <p className='mx-auto'>Continue with Microsoft</p>
-
-            </div>
-
-            {/* Email */}
-            <div className='auth-btn'>
-                <Image
-                    src="/apple_2.svg"
-                    alt="apple"
-                    width="20"
-                    height="20"
-                />
-
-                <p className='mx-auto'>Continue with Email</p>
-
-            </div>
-
-        </div>
-    </section>
+    </>
   )
 }
 

@@ -1,12 +1,12 @@
-// import { Navbar } from "@/components";
-// import { Navbar,Footer } from "@/components";
+import { Signin, SignUp } from "@/components/index";
 
 export default function Home() {
   return (
-    <main>
-      {/* <Navbar/> */}
-      Goke is a good boy
-      {/* <Footer/> */}
+    <main className="section">
+        Goke is a good boy
+        <Signin />
+
+        <SignUp/>
     </main>
   );
 }

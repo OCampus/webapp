@@ -1,6 +1,6 @@
 import React from 'react'
 import Image from 'next/image'
-import { LandlordProps } from './constants'
+import { LandlordProps } from '../utils/constants'
 
 const Landlord = () => {
     const {head,sub} =  LandlordProps;

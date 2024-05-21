@@ -11,12 +11,15 @@ import Landlord from "./Landlord";
 import Features from "./Features";
 import Download from "./Download";
 import Signin from "./Signin";
+import SignUp from "./SignUp";
+
 
 // help section
 import HelpHero from "./HelpHero";
 import HelpArticles from "./HelpArticles";
 import ArticlesCard from "./ArticlesCard";
-import PopularArticles from "./PopularArticles";
+// import PopularArticles from "./PopularArticles";
+import { PopularArticlesAccordion } from "./ArticleAccordion";
 
 export {Navbar,
         Hero,
@@ -25,10 +28,12 @@ export {Navbar,
         Landlord,
         Features,
         Download,
-        Footer, 
-        Signin, 
-        HelpHero, 
+        Footer,
+        Signin,
+        SignUp,
+        HelpHero,
         HelpArticles,
         ArticlesCard,
-        PopularArticles
+        // PopularArticles,
+        PopularArticlesAccordion
 }

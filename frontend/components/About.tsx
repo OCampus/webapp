@@ -1,6 +1,9 @@
+'use client';
 import React from 'react'
-import { AboutProps } from './constants'
+import { AboutProps } from '../utils/constants'
 import Image from 'next/image';
+import { motion } from 'framer-motion';
+import { fadeIn, textVariant } from '@/utils/motion';
 
 const About = () => {
     let {head,sub} = AboutProps[0];
@@ -21,23 +24,28 @@ const About = () => {
                 </div>
             </div>
 
-            <div className='md:w-1/2 grid place-items-center mt-8 md:mt-0'>
-                    <Image
-                        src="/frame1.png"
-                        alt= "Images"
-                        width = {500}
-                        height = {500}
-                        className="w-full"
-                    />
-            </div>
+            <motion.div
+                initial={{ y: 20, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                transition={{ ease: "easeInOut", duration: 0.75 }} 
+                className='md:w-1/2 grid place-items-center mt-8 md:mt-0'
+            >
+                <Image
+                    src="/frame1.png"
+                    alt= "Images"
+                    width = {500}
+                    height = {500}
+                    className="w-full"
+                />
+            </motion.div>
         </div>
 
         <div className='md:grid grid-cols-2 my-5 sm:mt-20 md:mt-32 gap-8  items-center'>
 
             <div className='col-span-1'>
-                <div className='text-3xl mb-2'>
+                <motion.p variants={textVariant(8)} className='text-3xl mb-2'>
                     {headSecond}
-                </div>
+                </motion.p>
                 <div className='mt-3 text-opac-dark'>
                     {subSecond}
                 </div>

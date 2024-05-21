@@ -1,12 +1,25 @@
 "use client"
 import React from 'react'
-import { HeroProps } from './constants'
+import { HeroProps } from '../utils/constants'
 import Image from 'next/image';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
-import { useState, useEffect } from 'react'
+import { useState, useEffect } from 'react';
+import { FlipWords } from './ui/FlipWords';
 
 const Hero = () => {
+    const words : any = [
+        "Entrance",
+        "Portal",
+        "Entry point",
+        "Access point",
+        "Threshold",
+        "Doorway",
+        "Passage",
+        "Ingress",
+        "Opening",
+        "Vestibule"
+      ] 
     const [heroImg, setHeroImg] = useState(
         window.innerWidth < 460 ? 
         `/${HeroProps?.heroImg}` 
@@ -37,7 +50,7 @@ const Hero = () => {
         });
     }, [])
     return (
-        <div className='section h-4/6 mb-3 md:py-2 bg-white'>
+        <div className='section h-4/6 mb-3 md:py-2 '>
 
             <div className=' w-full gap-3 my-5 md:my-16 sm:items-center'>
 
@@ -45,7 +58,9 @@ const Hero = () => {
                 <div className='text-balance md:text-center'>
                     <div className='heroText opacity-0'>
                         <h1 className='md:text-center'>
-                            {HeroProps.heroText}
+                            Welcome to Ocampus;
+                            Your <FlipWords words={words}/>
+                             to hassle-free student living
                         </h1>
                     </div>
 
@@ -67,6 +82,7 @@ const Hero = () => {
                         height={100000000}
                         key={heroImg}
                         className='hero-img md:w-full rounded-3xl object-cover object-center'
+                        priority
                     />
                 </div>
             </div>
