@@ -41,15 +41,15 @@ const AboutProps = [
 
 // Student section properties
 const StudentProps = {
-        head: "Students",
-        sub: "Discover your ideal home hassle-free. Ocampus ensures your student living experience is memorable and stress-free"
+        title: "As a Student?",
+        content: "Discover your ideal home hassle-free. Ocampus ensures your student living experience is memorable and stress-free"
 }
 
 
 // Landlord Section properties
 const LandlordProps = {
-        head: "Landlords",
-        sub: "Partner with Ocampus for increased visibility and hassle-free management of your student lodgings. Benefit from a secure and reliable platform."
+        title: "As a landlord?",
+        content: "Partner with Ocampus for increased visibility and hassle-free management of your student lodgings. Benefit from a secure and reliable platform."
 }
 
 

@@ -28,10 +28,13 @@ module.exports = {
         "tertiary-2" : "#F6F3FD",
         "content-1" : "#140227",
         "content-gray" : "#F2F2F2",
+        "content-4" : "#999999",
         "content-input-text" : "#717171"
       },
       screens: {
-        "mdf": "950px"
+        "mdf": "950px",
+        "msm": "600px"
+        // msm => mini small devices 
       }
     },
   },

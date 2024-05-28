@@ -2,12 +2,15 @@
 import Navbar from "./Navbar";
 import Footer from "./Footer";
 
+// Feed Section {Explore page}
+import FeedSearch from "./FeedSearch";
+import Feed from "./Feed";
+import HostelCard from "./HostelCard";
 
 // About section
 import Hero from "./Hero";
-import About from "./About";
-import Student from "./Student";
-import Landlord from "./Landlord";
+import AboutUs from "./AboutUs";
+import WhyChooseUs from "./WhyChooseUs";
 import Features from "./Features";
 import Download from "./Download";
 import Signin from "./Signin";
@@ -22,13 +25,15 @@ import ArticlesCard from "./ArticlesCard";
 import { PopularArticlesAccordion } from "./ArticleAccordion";
 
 export {Navbar,
+        Footer,
+        FeedSearch,
+        Feed,
+        HostelCard,
         Hero,
-        About,
-        Student,
-        Landlord,
+        AboutUs,
+        WhyChooseUs,
         Features,
         Download,
-        Footer,
         Signin,
         SignUp,
         HelpHero,

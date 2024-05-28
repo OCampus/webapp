@@ -53,7 +53,7 @@ export default function SmoothScroll({
         * Its position is fixed by default and moves when the user scrolls.
         */}
       <motion.div
-        className="scrollBody"
+        className="scrollBody h-full"
         style={{ y }}
         ref={contentRef}
       >

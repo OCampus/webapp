@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import "./globals.css";
-
 export const metadata: Metadata = {
   title: "oCampus",
   description: "Your gateway to hassle-free student living",
@@ -13,9 +12,8 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-
       <body className="font-manrope">
-        {children}
+          {children}
       </body>
     </html>
   );

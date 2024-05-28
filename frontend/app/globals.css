@@ -60,7 +60,7 @@ body {
 
 /* navbar onScroll */
 .scrolled {
-  @apply fixed w-full shadow top-0 glass
+  @apply fixed w-full shadow top-0 z-[1000]
 }
 
 /* Search */
@@ -83,7 +83,7 @@ body {
 }
 /* section */
 .section {
-  @apply px-4 sm:px-14 md:px-20 lg:px-[7.5rem] xl:px-[8.5rem]
+  @apply px-5 sm:px-14 md:px-20 lg:px-[7.5rem] xl:px-[9.5rem]
 }
 .unactive {
   @apply text-[rgb(71,71,71)]
@@ -91,7 +91,7 @@ body {
 
 /* download */
 .download {
-  @apply px-6 md:px-6 mx-2 white-30 h-fit text-center py-6 rounded-full md:rounded-lg
+  @apply px-2 md:px-6 md:mx-2 white-30 h-fit text-center py-2 md:py-6 rounded-3xl md:rounded-lg
 }
 
 /* drop shadow */
@@ -110,16 +110,26 @@ body {
 
 /* glassmorphism */
 .glass {
-  @apply bg-white rounded-md bg-clip-padding backdrop-filter backdrop-blur-md bg-opacity-60 z-[1000] border-0;
+  @apply bg-white bg-clip-padding backdrop-filter backdrop-blur-md bg-opacity-60 z-[1000] border-0;
 }
 
 .white-30 {
   @apply bg-neutral-700 sm:bg-white sm:bg-opacity-25 bg-opacity-40 ;
 }
 
+.flex-center {
+  @apply flex justify-center items-center
+}
 
 
 /* hero */
+.bg-hero {
+  background-image: url('/hero.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  width: 100%;
+}
 .heroText {
   @apply  text-3xl sm:text-3xl md:text-5xl text-left md:text-center text-[#080F2B] md:leading-[71px] font-bold
 }
@@ -155,30 +165,67 @@ body {
 }
 
 body::-webkit-scrollbar {
-  width: 0.3em;
-  @apply rounded-lg
+  @apply w-[0.5rem] rounded-lg
 }
 
 body::-webkit-scrollbar-track {
-  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+  -webkit-box-shadow: inset 4px 5px 6px #d9d9d9;
+  /* @apply  */
 }
 
 body::-webkit-scrollbar-thumb {
-background-color: darkgrey;
+background-color: #181818;
+/* outline: 1px solid slategrey; */
+@apply rounded-full shadow-md
+}
+
+.overflow-bar::-webkit-scrollbar {
+  @apply hidden md:flex w-[0.3rem] md:rounded-full
+}
+
+.overflow-bar::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px #d9d9d9;
+}
+
+.overflow-bar::-webkit-scrollbar-thumb {
+background-color: #181818;
 outline: 1px solid slategrey;
+@apply rounded-full
 }
 
-.overflow-scroll::-webkit-scrollbar {
-  width: 0.3em;
-  @apply rounded-2xl
+/* modal  input */
+.modal {
+  @apply max-w-2xl max-h-[70vh] py-4 px-7  border text-sm  my-3 md:my-5 bg-white shadow items-center justify-center text-neutral-700 w-full rounded-lg font-manrope
+}
+.modal-input {
+  @apply text-content-4 my-2 py-2 md:py-2.5 border px-2 outline-none rounded-xl w-full;
 }
 
-.overflow-scroll::-webkit-scrollbar-track {
-  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+.modal-btn {
+  @apply mt-4 px-3 rounded-lg py-2 md:py-3  w-full font-semibold;
+}
+/* popular articles {help page}  */
+.popular-articles-wrap {
+  @apply mt-4 shadow-lg rounded-xl border px-4 py-5 md:px-10 md:py-9
 }
 
-.overflow-scroll::-webkit-scrollbar-thumb {
-background-color: darkgrey;
-outline: 1px solid slategrey;
-border-radius: 7rem;
+.popular-articles-text {
+  @apply text-content-1 text-xl font-semibold
+}
+
+/* feed type */
+.feed-type-wrap {
+  @apply mx-auto my-4 bg-content-gray max-w-fit p-2 justify-center flex gap-0 rounded-2xl
+}
+.feed-type {
+  @apply  py-1.5 px-5 capitalize text-content-4 
+}
+
+.feed-type.active {
+  @apply bg-white shadow rounded-xl text-content-1/[0.8] font-semibold 
+}
+
+/* feed searchbar */
+.feed-search-wrap {
+  @apply flex sm:w-[75vw] md:max-w-screen-sm w-full px-3 py-1 bg-white rounded-3xl shadow border-[0.2px] border-content-gray mx-auto my-4
 }

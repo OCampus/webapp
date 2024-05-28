@@ -1,26 +1,23 @@
 "use client";
 import { useState ,useEffect } from "react";
+import SmoothScroll from "@/components/SmoothScroll";
 import { Navbar, Footer, HelpHero } from "@/components/index";
 import  { usePathname } from "next/navigation";
 // import Highlights from "@/components/video";
 
 export default function Template({ children }: { children: React.ReactNode }) {
     const pathname : any = usePathname();
-    const [vidW, setVidW] = useState(0);
-    const [vidH, setVidH] = useState(0);
+    const [modal,setModal] = useState(false);
 
-    useEffect(() => {
-        const vidElem = document.querySelector('#bgVd') as HTMLElement;
-        if (vidElem) {
-            setVidH(vidElem.offsetHeight);
-            setVidW(vidElem.offsetWidth);
-        }
-
-        console.log(vidH)
-    },[])
+    const handleModal = (state : any) => {
+        setModal(state);
+    }
 
     return(
         <>
+            <div id="modal" className={modal == false ? `text-xs bg-content-1 hidden` : `bg-content-1`}>
+                hgdfsjdka
+            </div>
             {pathname == '/help' && (
                 <div className="w-screen hidden md:block md:h-[70vh] overflow-hidden  relative">
                     <video className=" h-full " key='vid' id="bgVd" width="100%" height="100%" playsInline={true} autoPlay loop>
@@ -28,16 +25,16 @@ export default function Template({ children }: { children: React.ReactNode }) {
                     </video>
 
                     <div className="w-full mb-12 items-end justify-between translate-y[-25rem] translate-y-[-70vh]">
-                        <Navbar/>
+                        <Navbar handleModal={handleModal}/>
                         <HelpHero/>
                     </div>
                 </div>
             )}
 
-            <div className={pathname == '/about' ? ' bg-dot-content-1/[0.2]' : 'font-normal'}>
+            <div className='font-normal'>
                 {pathname !== '/help' && (
-                    <Navbar/>
-                )}    {children}
+                    <Navbar handleModal={handleModal}/>
+                )} <hr/>   {children}
                 <Footer />
             </div>
         </>

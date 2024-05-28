@@ -26,8 +26,8 @@ const page = () => {
           </div>
           <HelpArticles />
 
-          <div className='mt-4 shadow-lg rounded-xl border px-4 py-5 md:px-10 md:py-9'>
-            <p className='text-content-1 text-xl font-semibold'>Popular Articles</p>
+          <div className='popular-articles-wrap'>
+            <p className='popular-articles-text'>Popular Articles</p>
 
             <div className='mt-6'>
               <PopularArticlesAccordion />
